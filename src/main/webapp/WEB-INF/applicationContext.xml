@@ -20,7 +20,7 @@
     </bean>
 
     <!--<neo4j:config  storeDirectory="data/graph.db"/>-->
-    <neo4j:repositories base-package="com.travelport.restneohack.repository"/>
+    <neo4j:repositories base-package="com.travelport.restneohack.model.repositories"/>
 
     <!-- kathie
     <bean class="org.neo4j.cineasts.movieimport.MovieDbApiClient">

@@ -1,8 +1,10 @@
 package com.travelport.restneohack.rest.controller;
 
 import com.travelport.restneohack.dao.TravelDao;
+import com.travelport.restneohack.dao.TravelerDaoSvcImpl;
 import com.travelport.restneohack.model.domain.SearchReq;
 import com.travelport.restneohack.model.domain.Travel;
+import com.travelport.restneohack.model.domain.Traveler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -14,10 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-//import org.springframework.data.neo4j.examples.hellograph.TravelerDaoSvcImpl;
-//import org.springframework.data.neo4j.examples.hellograph.domain.Traveler;
-
-//import com.travelport.restneohack.neo4j.core.Traveler;
 
 @Controller
 @RequestMapping(value = "/rest")
@@ -30,8 +28,8 @@ public class CRUDServiceController {
     @Autowired
     private TravelDao travelDao;
     
-//    @Autowired
-//    TravelerDaoSvcImpl dataImpl;
+    
+    TravelerDaoSvcImpl dataImpl;
 
     @RequestMapping(value = "/searchTravel", method = RequestMethod.POST, consumes = APPLICATION_JSON, produces = APPLICATION_JSON)
     @ResponseStatus(value = HttpStatus.ACCEPTED)
@@ -40,10 +38,10 @@ public class CRUDServiceController {
         if (request == null) {
             throw new RuntimeException("Request cannot be empty");
         }
-//        Traveler traveler = dataImpl.createTraveler(new Traveler("Todd", "Helton", "toddhelton@retired.com"));
-//        
-//        
-//        System.out.println("Traveler email  = " + traveler.getEmailAddress());
+        Traveler traveler = dataImpl.createTraveler(new Traveler("Todd", "Helton", "toddhelton@retired.com"));
+        
+        
+        System.out.println("Traveler email  = " + traveler.getEmailAddress());
         return travelDao.findById(request.getId());
     }
 

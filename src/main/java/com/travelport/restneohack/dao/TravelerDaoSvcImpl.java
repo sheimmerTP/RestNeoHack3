@@ -44,6 +44,7 @@ import com.travelport.restneohack.model.domain.World;
 import com.travelport.restneohack.model.repositories.FormOfPaymentRepository;
 import com.travelport.restneohack.model.repositories.TravelerRepository;
 import org.springframework.data.neo4j.support.Neo4jTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,7 +55,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 
-@Service
+@Repository
 @Transactional
 public class TravelerDaoSvcImpl {    
     
