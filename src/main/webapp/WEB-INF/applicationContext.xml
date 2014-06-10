@@ -19,18 +19,13 @@
          <constructor-arg index="0" value="http://localhost:7474/db/data" />
     </bean>
 
-    <!--<neo4j:config  storeDirectory="data/graph.db"/>-->
+    <context:spring-configured/>
+    <context:annotation-config/>
+   
+
+    <neo4j:config storeDirectory="target/neo4j-db-plain"
+                  base-package="com.travelport.restneohack"/>
     <neo4j:repositories base-package="com.travelport.restneohack.model.repositories"/>
 
-    <!-- kathie
-    <bean class="org.neo4j.cineasts.movieimport.MovieDbApiClient">
-        <constructor-arg value="926d2a79e82920b62f03b1cb57e532e6"/>
-    </bean>
-    <bean class="org.neo4j.cineasts.movieimport.MovieDbLocalStorage">
-        <constructor-arg value="data/json"/>
-    </bean>
--->
-    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
-
-    <!--import resource="applicatioContext-security.xml"/-->
+    <tx:annotation-driven />
 </beans>

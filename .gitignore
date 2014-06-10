@@ -16,12 +16,7 @@ war
 .project
 .settings
 
-# IntelliJ IDEA Files #
 
-*.iml
-*.ipr
-*.iws
-*.idea
 
 # Test files
 
