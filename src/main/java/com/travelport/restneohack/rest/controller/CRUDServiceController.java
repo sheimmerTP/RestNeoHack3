@@ -1,8 +1,8 @@
 package com.travelport.restneohack.rest.controller;
 
 import com.travelport.restneohack.dao.TravelDao;
-import com.travelport.restneohack.model.SearchReq;
-import com.travelport.restneohack.model.Travel;
+import com.travelport.restneohack.model.domain.SearchReq;
+import com.travelport.restneohack.model.domain.Travel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

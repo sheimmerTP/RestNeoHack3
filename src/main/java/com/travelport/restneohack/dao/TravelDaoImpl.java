@@ -1,6 +1,6 @@
 package com.travelport.restneohack.dao;
 
-import com.travelport.restneohack.model.Travel;
+import com.travelport.restneohack.model.domain.Travel;
 
 public class TravelDaoImpl implements TravelDao {
 
