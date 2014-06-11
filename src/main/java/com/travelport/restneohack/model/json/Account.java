@@ -1,8 +1,8 @@
-package com.travelport.restneohack.model.domain;
+package com.travelport.restneohack.model.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Travel {
+public class Account {
 
 	@JsonProperty("ID")
 	private String id;

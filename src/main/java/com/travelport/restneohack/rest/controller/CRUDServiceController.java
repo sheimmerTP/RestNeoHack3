@@ -1,10 +1,11 @@
 package com.travelport.restneohack.rest.controller;
 
 import com.travelport.restneohack.dao.TravelDao;
-import com.travelport.restneohack.dao.TravelerDaoSvcImpl;
-import com.travelport.restneohack.model.domain.SearchReq;
-import com.travelport.restneohack.model.domain.Travel;
+import com.travelport.restneohack.model.dao.TravelerDaoSvcImpl;
+import com.travelport.restneohack.model.json.SearchReq;
+import com.travelport.restneohack.model.json.Account;
 import com.travelport.restneohack.model.domain.Traveler;
+import com.travelport.restneohack.model.json.SaveAccountReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -31,10 +32,10 @@ public class CRUDServiceController {
     @Autowired
     private TravelerDaoSvcImpl trvDaoImpl;
 
-    @RequestMapping(value = "/searchTravel", method = RequestMethod.POST, consumes = APPLICATION_JSON, produces = APPLICATION_JSON)
+    @RequestMapping(value = "/saveTravel", method = RequestMethod.POST, consumes = APPLICATION_JSON, produces = APPLICATION_JSON)
     @ResponseStatus(value = HttpStatus.ACCEPTED)
     @ResponseBody
-    public Travel retrieveRecord(@RequestBody SearchReq request) throws Throwable {
+    public Account storeRecord(@RequestBody SaveAccountReq request) throws Throwable {
         if (request == null) {
             throw new RuntimeException("Request cannot be empty");
         }
@@ -48,7 +49,7 @@ public class CRUDServiceController {
     @RequestMapping(value = "/searchTravel/{id}", method = RequestMethod.GET, produces = APPLICATION_JSON)
     @ResponseStatus(value = HttpStatus.ACCEPTED)
     @ResponseBody
-    public Travel retrieveRecord(@PathVariable(value = "id") String id) throws Throwable {
+    public Account retrieveRecord(@PathVariable(value = "id") String id) throws Throwable {
         return travelDao.findById(id);
     }
 }

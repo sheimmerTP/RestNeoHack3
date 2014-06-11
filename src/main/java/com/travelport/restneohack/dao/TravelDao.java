@@ -1,8 +1,8 @@
 package com.travelport.restneohack.dao;
 
-import com.travelport.restneohack.model.domain.Travel;
+import com.travelport.restneohack.model.json.Account;
 
 public interface TravelDao {
 
-	public Travel findById(String id);
+	public Account findById(String id);
 }

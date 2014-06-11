@@ -1,8 +1,8 @@
-package com.travelport.restneohack.model.domain;
+package com.travelport.restneohack.model.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SearchReq {
+public class SaveAccountReq {
 
 	@JsonProperty("ID")
 	private String id;
