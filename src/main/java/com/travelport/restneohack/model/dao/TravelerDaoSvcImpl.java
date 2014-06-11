@@ -7,6 +7,7 @@
 package com.travelport.restneohack.model.dao;
 
 
+import com.travelport.restneohack.model.domain.Account;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -67,36 +68,15 @@ public class TravelerDaoSvcImpl {
     @Autowired
     private Neo4jTemplate template;
     
- //   @Autowired
- //   GraphDatabase graphDatabase;
-    
-/*    public Traveler createTraveler(String firstName, String lastName, String emailAddress){
-        
-    Traveler traveler = new Traveler(firstName, lastName, emailAddress);    
-    
-    Transaction tx = graphDatabase.beginTx();
-    
-    try{
-        travelerRepository.save(traveler);
-        
-        //what relationships are we assigning here?
-        //assign address to traveler, but address has to be created and passed in as well
-        
-        tx.success();
 
-        }finally {
-            tx.finish();
-        }
-        
-        //quicker way return TravelerRepository.save(new Traveler(firstName, lastName, emailAddress));
-}*/ 
     public Traveler addAddress(Address address, Traveler traveler){
-        
-        String travEMail= traveler.getEmailAddress();
- //       traveler = findByEmailAddress(travEMail);
         traveler.addAddress(address);
         return travelerRepository.save(traveler);
-        
+    }
+    
+    public Traveler addAccount(Account account, Traveler traveler){
+        traveler.setAccount(account);
+        return travelerRepository.save(traveler);
     }
                 
     public Traveler createTraveler(Traveler traveler){

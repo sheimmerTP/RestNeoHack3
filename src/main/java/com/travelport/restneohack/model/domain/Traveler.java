@@ -23,6 +23,8 @@ public class Traveler {
     
         private final static String HAS_ADDRESS = "ADDRESS";
 
+        private final static String HAS_ACCOUNT = "ACCOUNT";
+        
 	private String firstName, lastName;
         
         @GraphId
@@ -36,6 +38,12 @@ public class Traveler {
 	private Set<Address> addresses = new HashSet<Address>();
        // private Set<Address> addresses = new HashSet<Address>();
 
+    
+
+        @Fetch
+	@RelatedTo(elementClass = Account.class, type = HAS_ACCOUNT)
+        private Account account;
+        
         public Traveler() {
 
 	}
@@ -87,6 +95,13 @@ public class Traveler {
             return addresses.contains(address);
         }
 
+        public Account getAccount() {
+            return account;
+        }
+
+        public void setAccount(Account account) {
+            this.account = account;
+        }
     @Override
     public String toString() {
         //return String.format("%s %s <%s>",firstName,lastName,emailAddress);
