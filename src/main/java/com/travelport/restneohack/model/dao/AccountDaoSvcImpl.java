@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.travelport.restneohack.dao;
+package com.travelport.restneohack.model.dao;
 
 
 
